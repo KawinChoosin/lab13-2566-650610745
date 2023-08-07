@@ -3,8 +3,8 @@
 import { MovieRow } from "@/components/MovieRow";
 import { movieDB } from "@/libs/movieDB";
 
-export default function SearchResultPage({ param }) {
-  const searchInput = param.searchInput;
+export default function SearchResultPage({ params }) {
+  const searchInput = params.searchInput;
   const processedSearchInput = searchInput.replaceAll("%20", " ");
   const filteredMovies = movieDB.filter((movie) =>
     movie.title.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
