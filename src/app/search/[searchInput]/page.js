@@ -3,8 +3,8 @@
 import { MovieRow } from "@/components/MovieRow";
 import { movieDB } from "@/libs/movieDB";
 
-export default function SearchResultPage({ params }) {
-  const searchInput = params.searchInput;
+export default function SearchResultPage({ param }) {
+  const searchInput = param.searchInput;
   const processedSearchInput = searchInput.replaceAll("%20", " ");
   const filteredMovies = movieDB.filter((movie) =>
     movie.title.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
@@ -21,7 +21,9 @@ export default function SearchResultPage({ params }) {
       {filteredMovies.map((movie, i) => (
         <MovieRow
           key={movie.id}
+          id={movie.id}
           title={movie.title}
+          detail={movie.detail}
           rating={movie.rating}
           number={i + 1}
         />
